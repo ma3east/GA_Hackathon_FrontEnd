@@ -14,8 +14,8 @@ function EventController(Event){
   self.getEvents = getEvents;
 
   getEvents();
-  function getEvents(){
-
+  self.search = function searchEvents(){
+    Event.search
   }
 
 
