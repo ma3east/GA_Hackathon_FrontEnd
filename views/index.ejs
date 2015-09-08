@@ -13,73 +13,14 @@
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
+<div class="container main-content" ng-controller="usersController as users">
+<div ng-include="'partials/nav'"></div>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top" >
-    <div class="container" >
-      <div class="navbar-header" >
-        <a class="navbar-brand"
-        href="/" >Event Match
-      </a >
-    </div >
-  </div >
-</nav >
 
-<div class="container main-content" ng-controller="usersController">
+<div ui-view ng-hide="users.currentUser">
+  
+</div>
 
-  <form ng-submit="onSubmit()"
-  novalidate="novalidate"
-  ng-hide="submitted" >
-  <div class="form-group" >
-    <label for="name" class="control-label">Name</label >
-      <input type="text"
-      class="form-control"
-      ng-model="formModel.name"
-      id="name"
-      required="required" >
-    </div >
-
-    <div class="form-group">
-      <label for="email" class="control-label">Email</label >
-        <input type="email"
-        class="form-control"
-        ng-model="formModel.email"
-        id="email"
-        required="required" >
-      </div >
-      
-      <div class="form-group" >
-        <label for="password" class="control-label">Password</label >
-          <input type="password"
-          class="form-control"
-          ng-model="formModel.password"
-          id="password"
-          required="required"
-          ng-minlength="5">
-        </div >
-
-        <div class="form-group">
-
-          <div class="alert alert-danger text-center" ng-show="has_error">
-            <h3>There was a problem registering, please try again later!</h3>
-          </div>
-
-          <button class="btn btn-primary"
-          ladda="submitting"
-          data-style="expand-right"
-          type="submit">
-          <span ng-show="submitting">Registering</span>
-          <span ng-show="!submitting">Register</span>
-        </button>
-      </div>
-
-    </form >
-    <div class="alert alert-info text-center" ng-show="submitted">
-      <h3>Thanks for Registering!</h3>
-    </div>
-
-  </div >
-
-  <div ng-controller="usersController as users"></div>
   <div ng-controller="eventsController as events"></div>
 
   <!-- External JS Files -->
@@ -96,7 +37,6 @@
   <script src="/libs/angular-ladda/dist/angular-ladda.min.js" ></script>
 
   <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/services/authInterceptor.js"></script>
   <script type="text/javascript" src="js/services/currentUser.js"></script>
   <!--<script type="text/javascript" src="js/services/geocodeService.js"></script>-->
   <script type="text/javascript" src="js/services/tokenService.js"></script>

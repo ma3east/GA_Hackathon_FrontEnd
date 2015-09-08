@@ -17,6 +17,4 @@ function EventController(Event){
   self.search = function searchEvents(){
     Event.search
   }
-
-
 }  
