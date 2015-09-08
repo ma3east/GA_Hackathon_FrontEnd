@@ -20,11 +20,14 @@
     <h3>{{event.name}}</h3>
     <p>
       {{ event.description | limitTo: 200 }}...
-      <a ui-sref="eventShow">More Info</a>
+      <a ui-sref="events.eventShow(event)">More Info</a>
     </p>
     </div>
     <div class='col-sm-4'><p class="date-conversion">{{ event.date | date:'EEEE, d MMMM   HH:mm' : '+0000'}}</p>
-    <p><a href="{{ event.url}}}" target="_blank">More Information/Get Tickets</a></p>
+    <p><a href="{{ event.url}}}" target="_blank">Get Tickets</a></p>
+    <p>
+    <button class="btn btn-info pairUpButton" ng-click="events.pairUp(event, $event)">Pair Up</button>
+    </p>
     </div>
   </div>
 </div>

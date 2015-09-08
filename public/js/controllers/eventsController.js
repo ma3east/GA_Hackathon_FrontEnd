@@ -10,9 +10,9 @@ angular
       }
   ]);
 
-EventController.$inject = ['Event']; 
+EventController.$inject = ['Event', 'CurrentUser']; 
 
-function EventController(Event){
+function EventController(Event, CurrentUser){
   // this.all = Event.query();
 
   var self = this;
@@ -20,11 +20,23 @@ function EventController(Event){
   self.query = {};
   self._id = {};
     self.event = {};
-  self.newEvent = {};
-
+  self.currentEvent = {};
   // getEvent 
-  self.getEvent = function () {
-    Event.get({ id: "55ef307df1ada951af60e8c1" }, getEventResponse)
+  self.showEvent = function (event) {
+      self.currentEvent = event;
+    // Event.get({ id: "55ef307df1ada951af60e8c1" }, getEventResponse)
+  }
+  self.pairUp = function (event, $event) {
+    self.currentUser = CurrentUser.check();
+    console.log(self.currentUser);
+    Event.save(event, function (resp) {
+      console.log('event saved', resp);
+      $($event.target).html('Pairing');
+      Event.invite({ 'eventId': resp.event._id, 'userId': self.currentUser.id }, function (resp) {
+        console.log('invited', resp);
+      })
+    });
+
   }
   self.search = function (){
     $('.spinner').fadeIn();
