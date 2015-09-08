@@ -6,19 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>eventMatch.com</title>
 
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <!-- External css files -->
+  <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+  <link href="libs/ladda/dist/ladda-themeless.min.css" rel="stylesheet" >
 
-  <!-- External JS Files -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
-  <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
-  
-  <!-- Internal JS Files -->
-  <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/models/user.js"></script>
-  <script type="text/javascript" src="js/models/event.js"></script>
-  <script type="text/javascript" src="js/controllers/usersController.js"></script>
-  <script type="text/javascript" src="js/controllers/eventsController.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 
@@ -32,10 +24,78 @@
     </div >
   </nav >
 
+  <div class="container main-content" ng-controller="usersController">
+
+    <form ng-submit="onSubmit()"
+          novalidate="novalidate"
+          ng-hide="submitted" >
+      <div class="form-group" >
+        <label for="name" class="control-label">Name</label >
+        <input type="text"
+               class="form-control"
+               ng-model="formModel.name"
+               id="name"
+               required="required" >
+      </div >
+
+      <div class="form-group">
+        <label for="email" class="control-label">Email</label >
+        <input type="email"
+               class="form-control"
+               ng-model="formModel.email"
+               id="email"
+               required="required" >
+      </div >
+      
+      <div class="form-group" >
+        <label for="password" class="control-label">Password</label >
+        <input type="password"
+               class="form-control"
+               ng-model="formModel.password"
+               id="password"
+               required="required"
+               ng-minlength="5">
+      </div >
+
+      <div class="form-group">
+
+        <div class="alert alert-danger text-center" ng-show="has_error">
+          <h3>There was a problem registering, please try again later!</h3>
+        </div>
+
+        <button class="btn btn-primary"
+                ladda="submitting"
+                data-style="expand-right"
+                type="submit">
+          <span ng-show="submitting">Registering</span>
+          <span ng-show="!submitting">Register</span>
+        </button>
+      </div>
+
+    </form >
+    <div class="alert alert-info text-center" ng-show="submitted">
+      <h3>Thanks for Registering!</h3>
+    </div>
+
+  </div >
+
+
   
 
   <div ng-controller="usersController as users"></div>
   <div ng-controller="eventsController as events"></div>
+
+  <!-- External JS Files -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
+  
+  <!-- Internal JS Files -->
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/models/user.js"></script>
+  <script type="text/javascript" src="js/models/event.js"></script>
+  <script type="text/javascript" src="js/controllers/usersController.js"></script>
+  <script type="text/javascript" src="js/controllers/eventsController.js"></script>
 
 </body>
 </html>
