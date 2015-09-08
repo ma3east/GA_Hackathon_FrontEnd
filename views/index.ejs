@@ -17,14 +17,11 @@
     <div ng-include="'partials/nav'"></div>
     <div ng-controller="eventsController as events">
       <a ui-sref="showEvent">Event</a>
-    </div>
-
-    <div ui-view ng-show="users.currentUser">
-      
+      <div ui-view></div> 
     </div>
   </div>
   <!-- External JS Files -->
-  
+
   <!-- Internal JS Files -->
   <script src="/libs/angular/angular.min.js" ></script>
   <script src="/libs/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>

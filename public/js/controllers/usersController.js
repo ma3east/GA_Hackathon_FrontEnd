@@ -10,7 +10,7 @@ angular
     self.submitting = false;
     self.submitted = false;
     self.has_error = false;
-
+    
     init();
 
     function init() {

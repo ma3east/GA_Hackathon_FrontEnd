@@ -8,12 +8,12 @@ angular
 })
 
 .run(function (defaultErrorMessageResolver) {
-    defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
-      errorMessages['tooYoung'] = 'You must be at least {0} years old to use this site';
-      errorMessages['tooOld'] = 'You must be max {0} years old to use this site';
-      errorMessages['badUsername'] = 'Username can only contain numbers and letters and _';
-    });
-  }
+  defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
+    errorMessages['tooYoung'] = 'You must be at least {0} years old to use this site';
+    errorMessages['tooOld'] = 'You must be max {0} years old to use this site';
+    errorMessages['badUsername'] = 'Username can only contain numbers and letters and _';
+  });
+}
 )
 
 function MainRouter($stateProvider, $urlRouterProvider) {
@@ -28,10 +28,6 @@ function MainRouter($stateProvider, $urlRouterProvider) {
   })
   .state('logout', {
     url: '/'
-  })
-  .state('showEvent', {
-    url: '/event',
-    templateUrl: 'partials/showEvent',
   })
   .state('search', {
     url: '/search',
