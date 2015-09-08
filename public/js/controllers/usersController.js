@@ -26,7 +26,7 @@ angular
 
 
     self.login = function () {
-      User.login(self.user, loginå);
+      User.login(self.user, login);
     }
     function login(response) {
       self.currentUser = CurrentUser.login(response.token);

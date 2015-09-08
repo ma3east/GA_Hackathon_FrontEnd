@@ -1,7 +1,7 @@
 <h3>Login</h3>
 <hr>
-<div class="container main-content" ng-controller="usersController">
-  <form ng-submit="onSubmit()"
+<div class="container main-content" >
+  <form ng-submit="users.login()"
         novalidate="novalidate"
         ng-hide="submitted" >
    
@@ -9,7 +9,7 @@
       <label for="email" class="control-label">Email</label >
       <input type="email"
              class="form-control"
-             ng-model="formModel.email"
+             ng-model="users.user.email"
              id="email"
              required="required" >
     </div >
@@ -18,7 +18,7 @@
       <label for="password" class="control-label">Password</label >
       <input type="password"
              class="form-control"
-             ng-model="formModel.password"
+             ng-model="users.user.password"
              id="password"
              required="required"
              ng-minlength="5">
@@ -34,8 +34,8 @@
               ladda="submitting"
               data-style="expand-right"
               type="submit">
-        <span ng-show="submitting">Registering</span>
-        <span ng-show="!submitting">Register</span>
+        <span ng-show="submitting">Login</span>
+        <span ng-show="!submitting">Logging in..</span>
       </button>
     </div>
 
@@ -43,4 +43,4 @@
   <div class="alert alert-info text-center" ng-show="submitted">
     <h3>Thanks for Registering!</h3>
   </div>
-</div >
+</div>
