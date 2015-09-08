@@ -1,13 +1,12 @@
 angular
-.module("eventMatchApp", ['angular-jwt', 'ngResource', 'ui.router', 'jcs-autoValidate', 'angular-ladda'])
-.constant('API', 'http://localhost:3000/api')
-.config(MainRouter).run(function($http, $window) {
-  var token = $window.localStorage.getItem('token');
-  $http.defaults.headers.common['Authorization'] = 'Bearer'
-})
+.module("eventMatchApp", ['angular-jwt', 'ngResource', 'ui.router', 'jcs-autoValidate', 'angular-ladda']).config(MainRouter);
 
 angular
-.module('eventMatchApp')
+.module("eventMatchApp").run(function($http, $window) {
+  var token = $window.localStorage.getItem('token');
+  $http.defaults.headers.common['Authorization'] = 'Bearer ' + token 
+})
+
 .run(function (defaultErrorMessageResolver) {
     defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
       errorMessages['tooYoung'] = 'You must be at least {0} years old to use this site';
@@ -15,7 +14,7 @@ angular
       errorMessages['badUsername'] = 'Username can only contain numbers and letters and _';
     });
   }
-);
+)
 
 function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider  
@@ -34,6 +33,10 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     url: '/event',
     templateUrl: 'partials/showEvent',
   })
+  .state('search', {
+    url: '/search',
+    templateUrl: 'partials/search'
+  });
 
   $urlRouterProvider.otherwise('/signup')
 
