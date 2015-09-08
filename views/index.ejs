@@ -13,14 +13,18 @@
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
-<div class="container main-content" ng-controller="usersController as users">
-<div ng-include="'partials/nav'"></div>
+  <div class="container main-content" ng-controller="usersController as users">
+    <div ng-include="'partials/nav'"></div>
 
-<div ng-controller="eventsController as events">
-<a ui-sref="showEvent">Event</a>
-<div ui-view ng-show="users.currentUser"></div>
-</div>
- 
+    <div ng-controller="eventsController as events">
+      <a ui-sref="showEvent">Event</a>
+    </div>
+
+    <div ui-view ng-show="users.currentUser">
+      
+    </div>
+  </div>
+
   <!-- External JS Files -->
   
   <!-- Internal JS Files -->
