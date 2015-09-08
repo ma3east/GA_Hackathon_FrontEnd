@@ -10,18 +10,19 @@
   <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
   <link href="/libs/ladda/dist/ladda-themeless.min.css" rel="stylesheet" >
 
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 <div class="container main-content" ng-controller="usersController as users">
 <div ng-include="'partials/nav'"></div>
+<div ng-controller="eventsController as events">
 
-
-<div ui-view ng-hide="users.currentUser">
+<div ui-view>
   
-</div>
 
-  <div ng-controller="eventsController as events"></div>
+
+</div>
+</div>
 
   <!-- External JS Files -->
   
@@ -47,3 +48,6 @@
 
 </body>
 </html>
+
+
+

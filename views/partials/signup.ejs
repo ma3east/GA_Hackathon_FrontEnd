@@ -1,4 +1,6 @@
 
+<div class="row">
+<div class="col-md-6">
 <form ng-submit="users.signup()"
 novalidate="novalidate"
 ng-hide="submitted" >
@@ -46,10 +48,12 @@ ng-hide="submitted" >
         <span ng-show="!submitting">Register</span>
       </button>
     </div>
+     </form >
+     </div>
+     </div>
 
-  </form >
   <div class="alert alert-info text-center" ng-show="submitted">
-    <h3>Thanks for Registering! Please login.</h3>
+    <h3>Thanks for Registering! Please login</h3>
   </div>
 
 </div >
