@@ -1,6 +1,14 @@
 angular
 .module("eventMatchApp")
-  .controller("eventsController", EventController);
+  .controller("eventsController", EventController)
+
+  .filter('cmdate', [
+      '$filter', function($filter) {
+          return function(input, format) {
+              return $filter('date')(new Date(input), format);
+          };
+      }
+  ]);
 
 EventController.$inject = ['Event']; 
 
@@ -19,12 +27,16 @@ function EventController(Event){
     Event.get({ id: "55ef307df1ada951af60e8c1" }, getEventResponse)
   }
   self.search = function (){
-    console.log(self.query)
+    $('.spinner').fadeIn();
+    self.all = {};
     Event.search(self.query, searchResponse);
   }
 
   function searchResponse(response) {
-    console.log(response);
+    $('.spinner').fadeOut();
+    self.all = response;
+    // moment( ).format('MMMM Do YYYY, h:mm:ss a'
+   
 }  
 
 function getEventResponse(response) {
