@@ -9,12 +9,12 @@ function EventController(Event){
 
   var self = this;
   self.all = [];
-
+  self.event = {};
   self.newEvent = {};
-  self.getEvents = getEvents;
+  // self.getEvents = getEvents;
 
-  getEvents();
-  self.search = function searchEvents(){
-    Event.search
-  }
+  // getEvents();
+  // self.search = function searchEvents(){
+  //   Event.search
+  // }
 }  

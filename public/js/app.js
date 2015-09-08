@@ -29,7 +29,11 @@ function MainRouter($stateProvider, $urlRouterProvider) {
   })
   .state('logout', {
     url: '/'
-  });
+  })
+  .state('showEvent', {
+    url: '/event',
+    templateUrl: 'partials/showEvent',
+  })
 
   $urlRouterProvider.otherwise('/signup')
 

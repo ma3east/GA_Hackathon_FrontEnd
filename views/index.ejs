@@ -16,13 +16,11 @@
 <div class="container main-content" ng-controller="usersController as users">
 <div ng-include="'partials/nav'"></div>
 
-
-<div ui-view ng-hide="users.currentUser">
-  
+<div ng-controller="eventsController as events">
+<a ui-sref="showEvent">Event</a>
+<div ui-view ng-show="users.currentUser"></div>
 </div>
-
-  <div ng-controller="eventsController as events"></div>
-
+ 
   <!-- External JS Files -->
   
   <!-- Internal JS Files -->

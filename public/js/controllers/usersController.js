@@ -11,11 +11,6 @@ angular
     self.submitted = false;
     self.has_error = false;
 
-
-
-
-
-    
     init();
 
     function init() {
