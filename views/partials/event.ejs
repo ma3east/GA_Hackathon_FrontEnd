@@ -1,1 +1,10 @@
 <h1>Search for Events</h1>
+<form ng-submit="events.search()">
+  <div class="form-group">
+  <input type="text" class="form-control" placeholder="Search Events" ng-model="event.query.query">
+  </div>
+  <div class="form-group">
+    <button type="sumbit">Search</button>
+  </div>
+
+</form>

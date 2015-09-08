@@ -29,7 +29,8 @@ function MainRouter($stateProvider, $urlRouterProvider) {
   })
   .state('logout', {
     url: '/'
-  });
+  })
+  .state('')
 
   $urlRouterProvider.otherwise('/signup')
 

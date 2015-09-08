@@ -16,12 +16,11 @@
 <div class="container main-content" ng-controller="usersController as users">
 <div ng-include="'partials/nav'"></div>
 
-
+<div ng-controller="eventsController as events">
 <div ui-view ng-hide="users.currentUser">
   
 </div>
-
-  <div ng-controller="eventsController as events"></div>
+</div>
 
   <!-- External JS Files -->
   
