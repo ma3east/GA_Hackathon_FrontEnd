@@ -29,5 +29,7 @@ angular
     self.logout = function () {
       self.currentUser = CurrentUser.logout();
       init()
-    }  
+    } 
+
+    return self; 
 }  

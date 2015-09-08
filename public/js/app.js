@@ -8,7 +8,7 @@ angular
 .run(function($http, $window) {
   var token = $window.localStorage.getItem('token');
   $http.defaults.headers.common['Authorization'] = 'Bearer'
-});
+})
 
 function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider  
@@ -26,4 +26,4 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/')
 
-})
+}

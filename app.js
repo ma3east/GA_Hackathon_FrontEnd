@@ -7,8 +7,6 @@ var app = express();
 var angularRoutes = require('./config/angularRoutes')
 var ejsLocals = require('ejs-locals')
 
-
-
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs');
 
@@ -21,6 +19,7 @@ app.get('/partials/:filename', angularRoutes.partials);
 app.use(angularRoutes.index);
 
 app.listen(3000);
+console.log("port running on 3000");
 
 
 module.exports = router;
