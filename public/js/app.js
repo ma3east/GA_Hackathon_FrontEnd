@@ -17,7 +17,21 @@ angular
 )
 
 function MainRouter($stateProvider, $urlRouterProvider) {
-  $stateProvider  
+  $stateProvider
+
+  
+  .state('events', {
+    url: '/events',
+    templateUrl: 'partials/events'
+  })  
+  .state('about', {
+    url: '/about',
+    templateUrl: 'partials/about'
+  })  
+  .state('landing', {
+    url: '/',
+    templateUrl: 'partials/landing'
+  })  
   .state('signup', {
     url: '/signup',
     templateUrl: 'partials/signup'
