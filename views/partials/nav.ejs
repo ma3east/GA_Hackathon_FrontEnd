@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <nav>
     <ul>
       <li>eventMatch</li>
@@ -9,4 +9,21 @@
       <li>Logout</li>
     </ul>
   </nav>
-</header>
+</header> -->
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="container" >
+      <div class="navbar-header" >
+        <a class="navbar-brand"
+        href="/" >Event Match
+      </a >
+    </div >
+    <ul ng-show="!users.currentUser">
+    <li><a ui-sref="signup">Signup</a></li>
+      <li><a ui-sref="login">Login</a></li>
+    </ul>
+    <ul ng-show="users.currentUser">
+      <li><a ui-sref="logout" ng-click="users.logout()">Logout</a></li>
+    </ul>
+  </div >
+</nav >

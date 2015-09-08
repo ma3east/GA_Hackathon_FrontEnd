@@ -31,6 +31,6 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     url: '/'
   });
 
-  $urlRouterProvider.otherwise('/')
+  $urlRouterProvider.otherwise('/signup')
 
 }
