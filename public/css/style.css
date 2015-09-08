@@ -1,10 +1,132 @@
-body {
-  padding-top: 50px;
+html,body {
+  height:100%;
+  background: url('https://static.pexels.com/photos/4224/restaurant-person-people-hand.jpg') center center no-repeat;
+  background-size: 100%;
 }
-.main-content {
-  padding: 40px 15px;
+
+h1 {
+  font-family: Arial,sans-serif
+  font-size:80px;
+  color:#DDCCEE;
 }
+
+.lead {
+  color:#DDCCEE;
+}
+
+
+/
+
+.container-full a {
+  color:#efefef;
+  text-decoration:none;
+}
+
+.v-center {
+  margin-top:7%;
+}
+
+
+.bg-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+    opacity: .6; 
+  }
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>:hover{
+  background-color: #DFE945;
+}
+
+
+a{
+  color: white;
+}
+
+.btn:focus {
+  background-color: red;
+}
+
+
+form{
+  width: 350px;
+  position: center;
+  margin: 0 auto;
+}
+
+nav {
+  position: center;
+  width: 100%;
+  right: 70px;
+}
+
+.navbar-default{
+    background-color: #151212;
+    border-color: #151212;
+}
+
+.row{
+  background-color: rgba(255,255,255,0.5);
+  background-size: 100%
+  bottom: -100px;
+  border-radius: 5px;
+}
+
 
 input{
   width: 200px;
 }
+.spinner { 
+display:none;}
+.spinner {
+  width: 40px;
+  height: 40px;
+
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+

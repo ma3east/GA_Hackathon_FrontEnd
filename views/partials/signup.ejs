@@ -1,4 +1,6 @@
 
+<div class="row">
+<div class="col-md-6">
 <form ng-submit="users.signup()"
 novalidate="novalidate"
 ng-hide="submitted" >
@@ -47,6 +49,7 @@ ng-hide="submitted" >
             <h3>There was a problem registering, please try again later!</h3>
           </div>
 
+<<<<<<< HEAD
           <button class="btn btn-primary"
           ladda="submitting"
           data-style="expand-right"
@@ -60,5 +63,22 @@ ng-hide="submitted" >
     <div class="alert alert-info text-center" ng-show="submitted">
       <h3>Thanks for Registering! Please login.</h3>
     </div>
+=======
+        <button class="btn btn-primary"
+        ladda="submitting"
+        data-style="expand-right"
+        type="submit">
+        <span ng-show="submitting">Registering</span>
+        <span ng-show="!submitting">Register</span>
+      </button>
+    </div>
+     </form >
+     </div>
+     </div>
+
+  <div class="alert alert-info text-center" ng-show="submitted">
+    <h3>Thanks for Registering! Please login</h3>
+  </div>
+>>>>>>> 7bb92190907fb6bcdb13af66cb281dbb7d178988
 
   </div >

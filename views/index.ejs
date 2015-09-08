@@ -10,9 +10,10 @@
   <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
   <link href="/libs/ladda/dist/ladda-themeless.min.css" rel="stylesheet" >
 
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
+<<<<<<< HEAD
   <div class="container main-content" ng-controller="usersController as users">
     <div ng-include="'partials/nav'"></div>
     <div ng-controller="eventsController as events">
@@ -22,6 +23,21 @@
   </div>
   <!-- External JS Files -->
 
+=======
+<div class="container main-content" ng-controller="usersController as users">
+<div ng-include="'partials/nav'"></div>
+
+
+<div ng-controller="eventsController as events">
+<div ui-view>
+  
+</div>
+</div>
+</div>
+
+  <!-- External JS Files -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+>>>>>>> 7bb92190907fb6bcdb13af66cb281dbb7d178988
   <!-- Internal JS Files -->
   <script src="/libs/angular/angular.min.js" ></script>
   <script src="/libs/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
@@ -44,3 +60,6 @@
 
 </body>
 </html>
+
+
+
