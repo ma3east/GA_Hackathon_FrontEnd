@@ -4,6 +4,6 @@ angular
 
 EventController.$inject = ['Event'];  
 function EventController(Event){
-  this.all = Event.query();
+  // this.all = Event.query();
 
 }  

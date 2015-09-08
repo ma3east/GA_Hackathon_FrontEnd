@@ -1,18 +1,13 @@
 angular
 .module('eventMatchApp')
-.factory('User', User);
-
-User.$inject = ['$resource', 'API'];
-function User($resource, API) {
-  var url = 'http://localhost:9000/api'
-  var UserResource = $resource(url + 'users/:id', {id: '@id'}, {
-    'get': { method: 'GET'},
+ .factory('User', User);
+User.$inject = ['$resource'];
+function User ($resource) {
+  var url = 'http://172.19.5.100:9000/api/';
+  var UserResource = $resource(url + 'users/:id', {id: '@_id'}, {
     'update': { method: 'PUT'},
-    'login': { url: url + 'login', method: 'POST' },
-    'join': {
-      url: url + 'signup',
-      method: 'POST'
-    }
+    'login': { url: url + 'login', method: 'POST'},
+    'signup': { url: url + 'join', method: 'POST' }
   })
   return UserResource;
-} // closes the function
+}
