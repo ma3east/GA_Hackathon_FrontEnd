@@ -27,8 +27,9 @@ h1 {
   margin-top:7%;
 }
 
-
-
+.btn.btn-info{
+  position: center;
+}
 
 
 
@@ -46,7 +47,6 @@ a.login-a{
 form{
   margin: 0 auto;
   border-radius: 5px;
-  position: absolute;
   top: 190px;
   width: 70%;
   z-index: 1005;
