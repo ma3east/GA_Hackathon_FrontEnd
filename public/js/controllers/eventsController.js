@@ -46,27 +46,33 @@ function EventController(Event, CurrentUser, $state){
   self.pairUp = function (event, $event) {
 
     self.currentUser = CurrentUser.check();
-    $($event.target).html('Pairing');
+    $($event.target).html('Pairing...');
     Event.findByName({ name: event.name }, function (response) {
-      if (response = [] || response.error != undefined) {
-      
-        Event.save(event, function (resp) {
-          Event.invite({ 'eventId': resp.event._id, 'userId': self.currentUser.id }, function (resp) {
-            console.log('invited', resp);
-          });
-          console.log('event saved', resp);
-          });
+
+      console.log('First bit',response);
+
+
+      if (response._id) {
+      Event.invite({ 'eventId': response._id, 'userId': self.currentUser.id }, function (resp) {
+        console.log('invited', resp);
+      });
+      Event.pairup({'eventId': response._id, 'userId': self.currentUser.id }, function (pairResponse) {
+        console.log('in pair up', pairResponse)
+        if (!pairResponse.message) {
+          $($event.target).html('Paired!');
+          $($event.target).next(".whoIsButton").slideDown();
+        } else {
+          $($event.target).html('Already Paired');
+        }
+      });
       } else {
-     
-          Event.invite({ 'eventId': response._id, 'userId': self.currentUser.id }, function (resp) {
-            console.log('invited', resp);
-          });
-          Event.pairup({'eventId': response._id, 'userId': self.currentUser.id }, function (pairResponse) {
-            if (!pairResponse.message) {
-              $($event.target).html('Paired!');
-              $($event.target).after("<button class='btn btn-success' ng-click='events.getMyEvents()'>See Who It Is</button>")
-            }
-          });
+     Event.save(event, function (resp) {
+       Event.invite({ 'eventId': resp.event._id, 'userId': self.currentUser.id }, function (resp) {
+         console.log('invited', resp);
+       });
+       console.log('event saved', resp);
+       });
+       
        
       }
     })
