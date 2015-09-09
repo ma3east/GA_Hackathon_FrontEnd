@@ -1,6 +1,6 @@
 <h1>My Events</h1>
 <div class="row">
-  <div class="row" ng-repeat="event in events.myEvents" >
+  <div class="row searchResultsRepeat" ng-repeat="event in events.myEvents" >
   <div class="myEventsItem">
     <div class='col-sm-3'><img class="img-responsive" ng-src="{{event.img_url}}" alt="event"></div>
     <div class='col-sm-5'>
@@ -17,11 +17,26 @@
     </p>
     <p>
       <h5>Pairings</h5>
-      <div ng-repeat="invite in event.invites | limitTo: 1">
-        <span ng-show="invite._attendee.name">{{ invite._attendee.name }}</span> with 
-        <span ng-show="invite._paireduser.name">{{ invite._paireduser.name }}</span>
-        <span ng-show="!invite._paireduser.name">No partner</span>
-     
+      <div ng-repeat="invite in event.invites">
+      <div class="row">
+      <div class="col-sm-6">
+      <p>
+        <span ng-show="invite._attendee.name">{{ invite._attendee.name }}</span>
+        </p>
+        <img ng-src="{{invite._attendee.img}}" width="50px" alt="">
+        </div> 
+        <div class="col-sm-6">
+        <p>
+          <span ng-show="invite._paireduser.name">{{ invite._paireduser.name }}</span>
+          <span ng-show="!invite._paireduser.name">No partner</span>
+          </p>
+          <p>
+            <img ng-show="invite._paireduser.name" ng-src="{{invite._paireduser.img}}" width="50px" alt="">
+          </p>
+
+        </div>
+       
+     </div>
       </div>
     </p>
     </div>

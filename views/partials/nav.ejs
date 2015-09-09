@@ -53,14 +53,9 @@
      <!-- Collect the nav links, forms, and other content for toggling -->
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        <ul class="nav navbar-nav">
-
-         <li class="active"><a ui-sref="about">About<span class="sr-only">(current)</span></a></li>
-         <li><a ui-sref="events" class="login-a">Events</a></li>
-
          <li><a ui-sref="about">About<span class="sr-only">(current)</span></a></li>
          <li><a ng-click="events.getMyEvents()" ng-show="users.currentUser" class="login-a">My Events</a></li>
          <li><a ui-sref="search" ng-show="users.currentUser" class="login-a">Search</a></li>
-
        </ul>
       <!--  <form ng-show="users.currentUser" ng-submit="events.navSearch()" class="navbar-form navbar-left" role="search">
          <div class="form-group">
