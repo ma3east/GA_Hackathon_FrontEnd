@@ -8,6 +8,16 @@ html,body {
   background-position: center;
   background-size: cover;
 }
+.auth-links {
+  font-weight: bold;
+  color:#333;
+
+  padding-top:40px;
+  text-decoration: underline;
+}
+.authButton {
+  margin-bottom: 20px;
+}
 .partnername {
   text-align: center;
   font-weight: bold;

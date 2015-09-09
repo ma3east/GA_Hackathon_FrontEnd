@@ -2,8 +2,8 @@ angular
   .module("eventMatchApp")
   .controller("usersController", UserController);
 
-  UserController.$inject = ['User', 'CurrentUser', '$state']  
-  function UserController(User, CurrentUser, $state){
+  UserController.$inject = ['User', 'CurrentUser', '$state', '$window']  
+  function UserController(User, CurrentUser, $state, $window){
     var self = this;
 
     self.formModel = {};
@@ -25,7 +25,9 @@ angular
     }
     function login(response) {
       self.currentUser = CurrentUser.login(response.token);
+      $window.location.reload();
       $state.go('search');
+
       init()
     }
     
