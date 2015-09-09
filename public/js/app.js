@@ -51,6 +51,6 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     templateUrl: 'partials/search'
   });
 
-  $urlRouterProvider.otherwise('/signup')
+  $urlRouterProvider.otherwise('/login')
 
 }
