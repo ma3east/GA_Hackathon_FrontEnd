@@ -4,11 +4,11 @@ angular
 
  Event.$inject = ['$resource'];
  function Event ($resource) {
-  var url = 'http://172.19.5.100:9000/api/events/'
+  var url = 'http://localhost:9000/api/events/'
   var EventResource = $resource(url + ':id', {id: '@_id'}, {
     'update': { method: 'PUT' },
     'search': { method: 'POST', url: url+ 'search', isArray:true },
-    'invite': { method: 'POST', url: 'http://172.19.5.100:9000/api/invites/' }
+    'invite': { method: 'POST', url: 'http://localhost:9000/api/invites/' }
   });
 
   

@@ -1,5 +1,7 @@
 html,body {
   height:100%;
+  /*background: url('http://www.openthemagazine.com/sites/default/files/imagecache/435by290/article_images/9395.science-faces.jpg') center center no-repeat;*/
+
   background: url('https://static.pexels.com/photos/4224/restaurant-person-people-hand.jpg') center center no-repeat;
   background-size: 100%;
 }
@@ -14,8 +16,6 @@ h1 {
   color:#DDCCEE;
 }
 
-
-/
 
 .container-full a {
   color:#efefef;
