@@ -32,7 +32,7 @@ angular
     self.signup = function () {
       console.log('in self.signup');
       self.submitting = true;
-
+      console.log(self.user)
       User.signup(self.user, login, function (){
           console.log(":)");
           self.submitting = false;
