@@ -5,7 +5,7 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>eventMatch.com</title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
   <!-- External css files -->
   <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
   <link href="/libs/ladda/dist/ladda-themeless.min.css" rel="stylesheet" >
@@ -14,17 +14,17 @@
 </head>
 <body>
 <div class="container main-content" ng-controller="usersController as users">
-<div ng-include="'partials/nav'"></div>
+
 
 
 <div ng-controller="eventsController as events">
-
-<div ui-view>
+<div ng-include="'partials/nav'"></div>
+<div ui-view class="mainView"> 
   
 </div>
 </div>
 </div>
-
+  
   <!-- External JS Files -->
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <!-- Internal JS Files -->

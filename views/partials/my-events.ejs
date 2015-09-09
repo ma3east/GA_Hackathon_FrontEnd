@@ -1,3 +1,4 @@
+<h1>My Events</h1>
 <div class="row">
   <div class="row" ng-repeat="event in events.myEvents" >
   <div class="myEventsItem">
@@ -16,7 +17,7 @@
     </p>
     <p>
       <h5>Pairings</h5>
-      <div ng-repeat="invite in event.invites">
+      <div ng-repeat="invite in event.invites | limitTo: 1">
         <span ng-show="invite._attendee.name">{{ invite._attendee.name }}</span> with 
         <span ng-show="invite._paireduser.name">{{ invite._paireduser.name }}</span>
         <span ng-show="!invite._paireduser.name">No partner</span>
