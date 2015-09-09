@@ -1,6 +1,7 @@
+<h1 class="search-header"><img class="img-responsive" style='margin:auto;' src="/images/eventmatch.png" alt=""></h1>
+<hr>
+<div class="container main-content" >
 
-<div class="row">
-<div class="col-md-6">
 <form ng-submit="users.signup()"
 novalidate="novalidate"
 ng-hide="submitted" >
@@ -13,7 +14,13 @@ ng-hide="submitted" >
     id="name"
     required="required" >
   </div >
-
+  <div class="form-group">
+    <label for="img_url" class="control-label">Profile Image Url:</label >
+      <input type="text"
+      class="form-control"
+      ng-model="users.user.img"
+      id="user-img" >
+    </div >
   <div class="form-group">
     <label for="email" class="control-label">Email</label >
       <input type="email"
@@ -53,8 +60,8 @@ ng-hide="submitted" >
       </button>
     </div>
      </form >
-     </div>
-     </div>
+</div>
+    
 
   <div class="alert alert-info text-center" ng-show="submitted">
     <h3>Thanks for Registering! Please login</h3>
