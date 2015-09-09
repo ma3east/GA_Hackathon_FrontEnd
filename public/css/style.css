@@ -4,7 +4,9 @@ html,body {
   background-position: center;
   background-size: cover;
 }
-
+.whoIsButton {
+  display:none;
+}
 h1 {
   font-family: Arial,sans-serif
   font-size:80px;

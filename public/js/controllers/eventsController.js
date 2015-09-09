@@ -10,9 +10,9 @@ angular
       }
   ]);
 
-EventController.$inject = ['Event']; 
+EventController.$inject = ['Event', 'CurrentUser', '$state']; 
 
-function EventController(Event){
+function EventController(Event, CurrentUser, $state){
   // this.all = Event.query();
 
   var self = this;
@@ -20,11 +20,64 @@ function EventController(Event){
   self.query = {};
   self._id = {};
     self.event = {};
-  self.newEvent = {};
+  self.currentEvent = {};
+  self.myEvents = {};
+  // My Events
+  self.getMyEvents = function () {
+    self.currentUser = CurrentUser.check();
+    Event.myEvents({ "userId": self.currentUser.id }, function (res) {
+      if (!res.error) self.myEvents = res;
+      $state.go('myEvents');  
+    } )
+  }
+  // Cancel Event 
+  self.cancel = function (event, $event) {
+    console.log(event);
+    self.currentEvent = CurrentUser.check();
+    Event.inviteDelete({ "eventId": event._id, "userId": self.currentUser.id }, function (resp) {
+      $($event.target).parent('.myEventsItem').slideUp();
+    });
 
-  // getEvent 
-  self.getEvent = function () {
-    Event.get({ id: "55ef307df1ada951af60e8c1" }, getEventResponse)
+  }
+  self.showEvent = function (event) {
+      self.currentEvent = event;
+    // Event.get({ id: "55ef307df1ada951af60e8c1" }, getEventResponse)
+  }
+  self.pairUp = function (event, $event) {
+
+    self.currentUser = CurrentUser.check();
+    $($event.target).html('Pairing...');
+    Event.findByName({ name: event.name }, function (response) {
+
+      console.log('First bit',response);
+
+
+      if (response._id) {
+      Event.invite({ 'eventId': response._id, 'userId': self.currentUser.id }, function (resp) {
+        console.log('invited', resp);
+      });
+      Event.pairup({'eventId': response._id, 'userId': self.currentUser.id }, function (pairResponse) {
+        console.log('in pair up', pairResponse)
+        if (!pairResponse.message) {
+          $($event.target).html('Paired!');
+          $($event.target).next(".whoIsButton").slideDown();
+        } else {
+          $($event.target).html('Already Paired');
+        }
+      });
+      } else {
+     Event.save(event, function (resp) {
+       Event.invite({ 'eventId': resp.event._id, 'userId': self.currentUser.id }, function (resp) {
+         console.log('invited', resp);
+       });
+       console.log('event saved', resp);
+       });
+       
+       
+      }
+    })
+
+
   }
   self.search = function (){
     $('.spinner').fadeIn();
