@@ -8,6 +8,10 @@ html,body {
   background-position: center;
   background-size: cover;
 }
+.attendee-img {
+  width:75px;
+  border-radius:50%;
+  }
 .mainView {
   padding-top:100px;
 }
