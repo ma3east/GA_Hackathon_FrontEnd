@@ -83,7 +83,7 @@ function EventController(Event, CurrentUser, $state){
 
   }
   self.search = function (){
-    $('.spinner').fadeIn();
+    $('.loading').fadeIn();
     self.all = {};
     Event.search(self.query, searchResponse);
   }
@@ -96,7 +96,7 @@ function EventController(Event, CurrentUser, $state){
   }
 
   function searchResponse(response) {
-    $('.spinner').fadeOut();
+    $('.loading').fadeOut();
     self.all = response;
     // moment( ).format('MMMM Do YYYY, h:mm:ss a'
    

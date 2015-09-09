@@ -4,7 +4,7 @@ html,body {
         rgba(0, 0, 0, 0.8), 
         rgba(70, 70, 70, 0.8)
       ),
-      url('http://whitemanblackmanchineseman.com/wp-content/uploads/2012/01/David-diverse-faces-collage.jpg') center center no-repeat;
+      url('/images/faces.jpg') center center no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -128,22 +128,44 @@ input{
 }
 
 
-.spinner { 
+.loading { 
 display:none;}
-
+.loading {
+  margin:auto;
+  width:50%;
+  font-weight: bold;
+}
+@media screen and (max-width:600px) {
+.loading {
+  margin:auto;
+  width:50%;
+  margin-left: 9%;
+}
+}
 .spinner {
   width: 40px;
   height: 40px;
   position: relative;
   margin: 100px auto;
-}
+  margin-left: 24%;
 
+
+}
+.loading-text {
+  color:white;
+  text-align: center;
+  position:absolute;
+  font-size: 20px;
+  top: 100px;
+  z-index: 100;
+  left:70px;
+}
 .double-bounce1, .double-bounce2 {
-  width: 100%;
-  height: 100%;
+  width: 600%;
+  height: 600%;
   border-radius: 50%;
-  background-color: #333;
-  opacity: 0.6;
+  background-color: #5bc0de;
+  opacity: 0.5;
   position: absolute;
   top: 0;
   left: 0;
