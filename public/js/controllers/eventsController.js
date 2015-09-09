@@ -10,9 +10,9 @@ angular
       }
   ]);
 
-EventController.$inject = ['Event', 'CurrentUser']; 
+EventController.$inject = ['Event', 'CurrentUser', '$state']; 
 
-function EventController(Event, CurrentUser){
+function EventController(Event, CurrentUser, $state){
   // this.all = Event.query();
 
   var self = this;
@@ -21,21 +21,56 @@ function EventController(Event, CurrentUser){
   self._id = {};
     self.event = {};
   self.currentEvent = {};
-  // getEvent 
+  self.myEvents = {};
+  // My Events
+  self.getMyEvents = function () {
+    self.currentUser = CurrentUser.check();
+    Event.myEvents({ "userId": self.currentUser.id }, function (res) {
+      if (!res.error) self.myEvents = res;
+      $state.go('myEvents');  
+    } )
+  }
+  // Cancel Event 
+  self.cancel = function (event, $event) {
+    console.log(event);
+    self.currentEvent = CurrentUser.check();
+    Event.inviteDelete({ "eventId": event._id, "userId": self.currentUser.id }, function (resp) {
+      $($event.target).parent('.myEventsItem').slideUp();
+    });
+
+  }
   self.showEvent = function (event) {
       self.currentEvent = event;
     // Event.get({ id: "55ef307df1ada951af60e8c1" }, getEventResponse)
   }
   self.pairUp = function (event, $event) {
+
     self.currentUser = CurrentUser.check();
-    console.log(self.currentUser);
-    Event.save(event, function (resp) {
-      console.log('event saved', resp);
-      $($event.target).html('Pairing');
-      Event.invite({ 'eventId': resp.event._id, 'userId': self.currentUser.id }, function (resp) {
-        console.log('invited', resp);
-      })
-    });
+    $($event.target).html('Pairing');
+    Event.findByName({ name: event.name }, function (response) {
+      if (response = [] || response.error != undefined) {
+      
+        Event.save(event, function (resp) {
+          Event.invite({ 'eventId': resp.event._id, 'userId': self.currentUser.id }, function (resp) {
+            console.log('invited', resp);
+          });
+          console.log('event saved', resp);
+          });
+      } else {
+     
+          Event.invite({ 'eventId': response._id, 'userId': self.currentUser.id }, function (resp) {
+            console.log('invited', resp);
+          });
+          Event.pairup({'eventId': response._id, 'userId': self.currentUser.id }, function (pairResponse) {
+            if (!pairResponse.message) {
+              $($event.target).html('Paired!');
+              $($event.target).after("<button class='btn btn-success' ng-click='events.getMyEvents()'>See Who It Is</button>")
+            }
+          });
+       
+      }
+    })
+
 
   }
   self.search = function (){

@@ -19,7 +19,10 @@ angular
 function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-  
+  .state('myEvents', {
+    url: '/events/attending',
+    templateUrl: 'partials/my-events'
+  })
   .state('events', {
     url: '/events',
     templateUrl: 'partials/events'
