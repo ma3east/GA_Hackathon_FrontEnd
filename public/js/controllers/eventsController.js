@@ -26,7 +26,9 @@ function EventController(Event, CurrentUser, $state){
   self.getMyEvents = function () {
     self.currentUser = CurrentUser.check();
     Event.myEvents({ "userId": self.currentUser.id }, function (res) {
-      if (!res.error) self.myEvents = res;
+      if (!res.error) { self.myEvents = res;
+        console.log(res);
+      }
       $state.go('myEvents');  
     } )
   }
