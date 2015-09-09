@@ -44,7 +44,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
     templateUrl: 'partials/login'
   })
   .state('logout', {
-    url: '/'
+    url: '/signup'
   })
   .state('search', {
     url: '/search',

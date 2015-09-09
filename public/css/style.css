@@ -1,9 +1,12 @@
 html,body {
   height:100%;
-  /*background: url('http://www.openthemagazine.com/sites/default/files/imagecache/435by290/article_images/9395.science-faces.jpg') center center no-repeat;*/
-
-  background: url('https://static.pexels.com/photos/4224/restaurant-person-people-hand.jpg') center center no-repeat;
-  background-size: 100%;
+  background:linear-gradient(
+        rgba(0, 0, 0, 0.8), 
+        rgba(70, 70, 70, 0.8)
+      ),
+      url('http://whitemanblackmanchineseman.com/wp-content/uploads/2012/01/David-diverse-faces-collage.jpg') center center no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .whoIsButton {
   display:none;
@@ -19,6 +22,7 @@ h1 {
 }
 
 
+
 .container-full a {
   color:#efefef;
   text-decoration:none;
@@ -28,30 +32,15 @@ h1 {
   margin-top:7%;
 }
 
-
-.bg-img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-    opacity: .6; 
-  }
-}
-
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>:hover{
-  background-color: #DFE945;
+.btn.btn-info{
+  position: center;
 }
 
 
-a{
+
+
+
+a.login-a{
   color: white;
 }
 
@@ -61,13 +50,26 @@ a{
 
 
 form{
-  width: 350px;
-  position: center;
   margin: 0 auto;
+  border-radius: 5px;
+  top: 190px;
+  width: 70%;
+  z-index: 1005;
+  left: 310px;
+  background-color: #FFFFFF;
+  padding: 1.875rem;
+  border: solid 1px #666666;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  background-color: rgba(255,255,255,0.5);
 }
 
-nav {
+.about a:hover{
+  background-color: #DFE945;
+}
+
+nav,{
   position: center;
+  background-color: #DFE945;
   width: 100%;
   right: 70px;
 }
@@ -88,12 +90,14 @@ nav {
 input{
   width: 200px;
 }
+
+
 .spinner { 
 display:none;}
+
 .spinner {
   width: 40px;
   height: 40px;
-
   position: relative;
   margin: 100px auto;
 }
@@ -131,4 +135,3 @@ display:none;}
     -webkit-transform: scale(1.0);
   }
 }
-
