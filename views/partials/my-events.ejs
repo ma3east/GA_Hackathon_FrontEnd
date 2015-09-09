@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="row" ng-repeat="event in events.myEvents" >
+  <div class="myEventsItem">
+    <div class='col-sm-3'><img class="img-responsive" ng-src="{{event.img_url}}" alt="event"></div>
+    <div class='col-sm-5'>
+    <h3>{{event.name}}</h3>
+    <p>
+      {{ event.description | limitTo: 200 }}...
+      <a ui-sref="events.eventShow(event)">More Info</a>
+    </p>
+    </div>
+    <div class='col-sm-4'><p class="date-conversion">{{ event.date | date:'EEEE, d MMMM   HH:mm' : '+0000'}}</p>
+    <p><a href="{{ event.url}}}" target="_blank">Get Tickets</a></p>
+    <p>
+    <button class="btn btn-danger cancelButton" ng-click="events.cancel(event, $event)">Cancel</button>
+    </p>
+    <p>
+      <h5>Pairings</h5>
+      <div ng-repeat="invite in event.invites">
+        <span ng-show="invite._attendee.name">{{ invite._attendee.name }}</span> with 
+        <span ng-show="invite._paireduser.name">{{ invite._paireduser.name }}</span>
+        <span ng-show="!invite._paireduser.name">No partner</span>
+     
+      </div>
+    </p>
+    </div>
+    </div>
+  </div>
+</div>
