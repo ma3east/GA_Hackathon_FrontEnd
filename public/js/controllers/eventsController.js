@@ -30,6 +30,7 @@ function EventController(Event, CurrentUser, $state){
       $state.go('myEvents');  
     } )
   }
+
   // Cancel Event 
   self.cancel = function (event, $event) {
     console.log(event);
@@ -83,6 +84,13 @@ function EventController(Event, CurrentUser, $state){
     $('.spinner').fadeIn();
     self.all = {};
     Event.search(self.query, searchResponse);
+  }
+  self.navSearch = function (){
+    $state.go('search');
+    self.all = {};
+    $('.spinner').fadeIn();
+    Event.search(self.query, searchResponse);
+   
   }
 
   function searchResponse(response) {

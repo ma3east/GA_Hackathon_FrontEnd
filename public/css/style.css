@@ -8,15 +8,24 @@ html,body {
   background-position: center;
   background-size: cover;
 }
+.mainView {
+  padding-top:100px;
+}
+.myEventsButton {
+  display:inline-block;
+  margin:10px;
+}
 .whoIsButton {
   display:none;
 }
 h1 {
   font-family: Arial,sans-serif
   font-size:80px;
-  color:#DDCCEE;
+  color:#fff;
 }
-
+.search-header {
+  text-align: center;
+}
 .lead {
   color:#DDCCEE;
 }
@@ -80,13 +89,20 @@ nav,{
 }
 
 .row{
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,1);
   background-size: 100%
   bottom: -100px;
   border-radius: 5px;
 }
-
-
+.searchResultsContainer {
+  background-color: rgba(255,255,255,1);
+  margin-top: 50px;
+ 
+} 
+.searchResultsRepeat {
+  padding:20px;
+  margin-bottom: -10px;
+}
 input{
   width: 200px;
 }
@@ -115,7 +131,9 @@ display:none;}
   -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
   animation: sk-bounce 2.0s infinite ease-in-out;
 }
-
+.searchResultsContainer {
+  background: ;
+}
 .double-bounce2 {
   -webkit-animation-delay: -1.0s;
   animation-delay: -1.0s;
