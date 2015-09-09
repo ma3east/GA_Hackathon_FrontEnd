@@ -17,7 +17,7 @@ ng-hide="submitted" >
     required="required" >
   </div >
   <div class="form-group">
-    <label for="img_url" class="control-label">Profile Image Url:</label >
+    <label for="img\" class="control-label">Profile Image Url:</label >
       <input type="text"
       class="form-control"
       ng-model="users.user.img"
@@ -60,6 +60,8 @@ ng-hide="submitted" >
         <button class="btn btn-primary"
         <span ng-show="submitting"><a ui-sref="landing">Signup</a></span>
       </button>
+      <br/>
+      <a ui-sref="login" class="auth-links">Have an Account? Login Here</a>
     </div>
      </form >
 </div>
