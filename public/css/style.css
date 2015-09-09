@@ -5,7 +5,9 @@ html,body {
   background: url('https://static.pexels.com/photos/4224/restaurant-person-people-hand.jpg') center center no-repeat;
   background-size: 100%;
 }
-
+.whoIsButton {
+  display:none;
+}
 h1 {
   font-family: Arial,sans-serif
   font-size:80px;
