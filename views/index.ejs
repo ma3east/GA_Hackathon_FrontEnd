@@ -14,12 +14,12 @@
 </head>
 <body>
 <div class="container main-content" ng-controller="usersController as users">
-<div ng-include="'partials/nav'"></div>
+
 
 
 <div ng-controller="eventsController as events">
-
-<div ui-view>
+<div ng-include="'partials/nav'"></div>
+<div ui-view class="mainView"> 
   
 </div>
 </div>
