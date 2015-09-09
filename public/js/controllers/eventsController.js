@@ -75,7 +75,7 @@ function EventController(Event, CurrentUser, $state){
        });
        console.log('event saved', resp);
        });
-       
+     $($event.target).after('<br/><span style="padding-top:12px;">Please check my events.</span>')
        
       }
     })
