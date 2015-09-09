@@ -1,6 +1,10 @@
 html,body {
   height:100%;
-  background: url('http://whitemanblackmanchineseman.com/wp-content/uploads/2012/01/David-diverse-faces-collage.jpg') center center no-repeat;
+  background:linear-gradient(
+        rgba(0, 0, 0, 0.8), 
+        rgba(70, 70, 70, 0.8)
+      ),
+      url('http://whitemanblackmanchineseman.com/wp-content/uploads/2012/01/David-diverse-faces-collage.jpg') center center no-repeat;
   background-position: center;
   background-size: cover;
 }
